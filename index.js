@@ -28,7 +28,7 @@ const checkCollision = (pacman, ghosts) => {
 }
 
 const gameLoop = (pacman, ghosts) => {
-
+    gameBoard.moveCharacter(pacman);
 }
 
 const startGame = () => {
@@ -44,7 +44,9 @@ const startGame = () => {
     gameBoard.addObject(287, [OBJECT_TYPE.PACMAN]);
     document.addEventListener('keydown', e => {
         pacman.handleKeyInput(e, gameBoard.objectExist);
-    })
+    });
+
+    timer = setInterval(() => gameLoop(pacman), GLOBAL_SPEED);
 }
 
 // Initialize game
